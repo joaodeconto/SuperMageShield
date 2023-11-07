@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf1c649b437957439fe8949a98cb8bb, type: 3}
+  m_Name: Enemy (0)
+  m_EditorClassIdentifier: 
+  entityName: 'Crazy Skull '
+  entityColor: {r: 1, g: 0, b: 0, a: 0}
+  entityNumber: 0
+  entityPrefab: {fileID: 9021188628978950328, guid: 1e0999f6393a92a4eb7cc33080ddd759, type: 3}
+  entityStartingPos: {x: 0, y: 0}
+  enemyProjectile: {fileID: 0}
+  enemyProjectileSpeed: 1
