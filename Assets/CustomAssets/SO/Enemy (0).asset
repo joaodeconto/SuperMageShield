@@ -16,6 +16,9 @@ MonoBehaviour:
   entityColor: {r: 1, g: 0, b: 0, a: 0}
   entityNumber: 0
   entityPrefab: {fileID: 9021188628978950328, guid: 1e0999f6393a92a4eb7cc33080ddd759, type: 3}
-  entityStartingPos: {x: 0, y: 0}
-  enemyProjectile: {fileID: 0}
+  entitySpawnPos: {x: 0, y: 0}
+  enemyProjectile: {fileID: 2423029239443762642, guid: d71dc73de2c273b4eb3da78efe332227, type: 3}
   enemyProjectileSpeed: 1
+  enemyAnimationSpeed: 0
+  enemyLevel: 0
+  shootingFrequency: 3

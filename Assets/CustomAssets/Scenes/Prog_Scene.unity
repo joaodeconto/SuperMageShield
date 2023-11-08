@@ -1403,6 +1403,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7612663537846363280, guid: 84d66373e8160ea4da13f9ad21a08897, type: 3}
+      propertyPath: m_Mass
+      value: 7.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612663537846363280, guid: 84d66373e8160ea4da13f9ad21a08897, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 552718e596d0e408295d5ae742cc4097, type: 2}
+    - target: {fileID: 7612663537846363280, guid: 84d66373e8160ea4da13f9ad21a08897, type: 3}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8181069325040045412, guid: 84d66373e8160ea4da13f9ad21a08897, type: 3}
       propertyPath: m_Name
       value: Hero

@@ -9,5 +9,6 @@ namespace SuperMageShield
         public float enemyProjectileSpeed;
         public float enemyAnimationSpeed;
         public int enemyLevel;
+        public float shootingFrequency;
     }
 }
