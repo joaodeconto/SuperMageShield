@@ -52,6 +52,7 @@ namespace SuperMageShield
         private void DoMoveHero(Vector2 dir)
         {
             _lastHeroMov = dir;
+            dir.y = 0;
             transform.position += HeroSpeed * (Vector3)dir * Time.deltaTime;
 
             if (_lastHeroMov.magnitude < 0 && !_heroRenderer.flipX)
