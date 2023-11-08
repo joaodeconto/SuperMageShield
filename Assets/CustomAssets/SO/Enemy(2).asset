@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cf1c649b437957439fe8949a98cb8bb, type: 3}
-  m_Name: Enemy (0)
+  m_Name: Enemy(2)
   m_EditorClassIdentifier: 
-  entityName: 'Crazy Skull '
-  entityColor: {r: 0.5660378, g: 0.5633678, b: 0.5633678, a: 0}
+  entityName: Obsidian Skull
+  entityColor: {r: 0, g: 0, b: 0, a: 0}
   entityNumber: 0
-  entityPrefab: {fileID: 1364123340753256849, guid: f23fd4105a36c5f408f7222462aa100f, type: 3}
+  entityPrefab: {fileID: 33048842164232868, guid: b8ecdbb3724a87548a01a616df8fad58, type: 3}
   entitySpawnPos: {x: 0, y: 0}
   enemyProjectile: {fileID: 2423029239443762642, guid: d71dc73de2c273b4eb3da78efe332227, type: 3}
-  enemyProjectileSpeed: 1
+  enemyProjectileSpeed: 0
   enemyAnimationSpeed: 0
   enemyLevel: 0
-  shootingFrequency: 3
+  shootingFrequency: 0
