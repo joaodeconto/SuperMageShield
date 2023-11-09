@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: GMSO
   m_EditorClassIdentifier: 
   currentScore: 0
-  currentLevel: 0
-  currentVillages: 0
   initialVillages: 3
+  maxLevels: 5
   levelPontuation: 00000000204e000030750000409c000050c30000
   heroStats:
-  - 0
+  - 3520
   - 0
   - 0
   mainScoreList: 

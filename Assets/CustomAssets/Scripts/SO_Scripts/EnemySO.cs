@@ -10,5 +10,6 @@ namespace SuperMageShield
         public float enemyAnimationSpeed;
         public int enemyLevel;
         public float shootingFrequency;
+        public float buffDropChance = .2f;
     }
 }

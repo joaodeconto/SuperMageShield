@@ -64,7 +64,7 @@ namespace SuperMageShield
             return _healthCurrent > 0;
         }
 
-        protected void DoDestroy()
+        protected virtual void DoDestroy()
         {
             OnEntityDefeated(_entityData);
 
