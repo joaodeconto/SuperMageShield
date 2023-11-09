@@ -20,4 +20,4 @@ MonoBehaviour:
   entityHealth: 0
   entityScore: 0
   projectileResistance: 2
-  projectileDamage: 20
+  projectileDamage: 10

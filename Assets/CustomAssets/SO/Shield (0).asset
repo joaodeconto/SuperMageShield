@@ -19,6 +19,6 @@ MonoBehaviour:
   entitySpawnPos: {x: 0, y: 0}
   entityHealth: 0
   entityScore: 0
-  shieldRaiseSpeed: 6
-  shieldDuration: 1
+  shieldRaiseSpeed: 12
+  shieldDuration: 0.3
   shieldSize: 2
