@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd5fa622ee7f8dc429601bdd86ae60c1, type: 3}
-  m_Name: Projectile (0)
+  m_Name: Projectile(2)
   m_EditorClassIdentifier: 
-  entityName: Simple Shoot
-  entityColor: {r: 1, g: 0.98596007, b: 0.8443396, a: 1}
+  entityName: 
+  entityColor: {r: 0, g: 0, b: 0, a: 0}
   entityNumber: 0
-  entityPrefab: {fileID: 2423029239443762642, guid: d71dc73de2c273b4eb3da78efe332227, type: 3}
+  entityPrefab: {fileID: 2423029239443762642, guid: 3fcbb53880b1e0b42b38ec0b33047928, type: 3}
   entitySpawnPos: {x: 0, y: 0}
   entityHealth: 0
   entityScore: 0
-  projectileResistance: 1
-  projectileDamage: 10
+  projectileResistance: 0
+  projectileDamage: 0

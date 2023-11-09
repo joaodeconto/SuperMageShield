@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6dfbc768ce0654484e25df9470a2a4, type: 3}
   m_Name: GMSO
   m_EditorClassIdentifier: 
-  currentScore: 1100
+  currentScore: 2600
   initialVillages: 3
   maxLevels: 3
   levelPontuation: 630000009001000020030000dc050000
   heroStats:
-  - 2280
+  - 10
   - 0
   - 0
   mainScoreList: 
