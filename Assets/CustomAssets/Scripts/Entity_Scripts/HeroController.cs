@@ -12,9 +12,9 @@ namespace SuperMageShield
         private Vector3 _currentHeroMove;
         private bool _isMoving;
         private bool _buffAffecting;
-        private float _buffSpeed;
-        private float _buffPower;
-        private float _buffShield;
+        private float _buffSpeed = 1;
+        private float _buffPower = 1;
+        private float _buffShield = 1;
         public float HeroSpeed 
         {
             get 

@@ -11,7 +11,7 @@ namespace SuperMageShield
         [SerializeField] private GameManagerSO gmData;
 
         [Header("SpawnWaves")]
-        [SerializeField]private List<GameObject> waveList;
+        [SerializeField] private List<GameObject> waveList;
 
         [Header("UI Elements")]
         [SerializeField] private string gameName;
@@ -25,20 +25,24 @@ namespace SuperMageShield
         private int _currentLevel;
         void Start()
         {
-            waveList[0].SetActive(true);
-
-            gmData.currentScore = 0;
-            UpdateScore(0);
-            foreach (var slider in sliderStats)
-            {
-                slider.value = 0;
-            }
+            ClearStats();                   
 
             _currentVillages = gmData.initialVillages;
             _currentLevel = -1;
             NextStage();
+        }
+
+        private void OnEnable()
+        {
+
             ShieldController.OnReflectedProjectile += UpdateShieldPower;
             EntityController.OnEntityDefeated += HandleEntityDefeated;
+        }
+
+        private void OnDisable()
+        {
+            ShieldController.OnReflectedProjectile -= UpdateShieldPower;
+            EntityController.OnEntityDefeated -= HandleEntityDefeated;
         }
 
         void HandleEntityDefeated(EntitySO entity)
@@ -51,6 +55,20 @@ namespace SuperMageShield
             {
                 UpdateVillage();
             }
+        }
+
+        void ClearStats()
+        {
+            for (int i = 0; i < gmData.heroStats.Count; i++)
+            {
+                gmData.heroStats[i] = 0;
+            }
+            foreach (var slider in sliderStats)
+            {
+                slider.value = 0;
+            }
+            gmData.currentScore = 0;
+            UpdateScore(0);
         }
 
         // Update is called once per frame
