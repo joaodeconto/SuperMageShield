@@ -17,5 +17,7 @@ MonoBehaviour:
   entityNumber: 0
   entityPrefab: {fileID: 8181069325040045412, guid: 84d66373e8160ea4da13f9ad21a08897, type: 3}
   entitySpawnPos: {x: 0, y: 0}
-  heroSpeed: 1.59
+  heroSpeed: 3.2
   heroMaxHealth: 5
+  speedBuff: 0
+  offBounds: 5

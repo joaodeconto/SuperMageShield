@@ -3,27 +3,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : EntityController
 {
-    [SerializeField] private EnemySO enemyData;
-
-    private GameObject projectileObj;
-    private float shootingFrequency;
+    private EnemySO _enemyData;
+    private float _shootingFrequency;
+    private int _enemyLevel;
+    private Vector3 _projectileOffset = new (0, .5F,0);
 
     private void Start()
     {
-        shootingFrequency = enemyData.shootingFrequency;
-        StartCoroutine(Shoot() );
+        _enemyData = _entityData as EnemySO;
+        _shootingFrequency = _enemyData.shootingFrequency;
+        HandleEnemyLevel();
     }
 
-    private IEnumerator Shoot()
+    private void HandleEnemyLevel()
     {
+        _enemyLevel = _enemyData.enemyLevel;
+        switch (_enemyLevel)
+        {
+            case 0: StartCoroutine(SingleForwardShoot()); break;
+            case 1: StartCoroutine(SingleDirectionalShoot(new Vector2(1,-1))); break;
+            case 2: MultipleMirrorShoots(new Vector2(1, -1)); break;
+        }
+    }
 
-        projectileObj = Instantiate(enemyData.enemyProjectile);
-        projectileObj.SetActive(true);
-        projectileObj.GetComponent<Rigidbody2D>().velocity = Vector2.up * -1 * enemyData.enemyProjectileSpeed;
-        yield return new WaitForSeconds(shootingFrequency);
-        StartCoroutine(Shoot());
+
+    private IEnumerator SingleForwardShoot()
+    {
+        _projectileObj = PoolManager.Instance.AvailableGameObject();
+        _projectileObj.transform.SetPositionAndRotation(transform.position - _projectileOffset, Quaternion.Euler(Vector3.zero));
+        _projectileObj.SetActive(true);
+        _projectileObj.GetComponent<Rigidbody2D>().velocity = Vector2.up * _enemyData.enemyProjectileSpeed;
+        yield return new WaitForSeconds(_shootingFrequency);
+        StartCoroutine(SingleForwardShoot());
+    }
+
+    private IEnumerator SingleDirectionalShoot(Vector2 dir)
+    {
+        _projectileObj = PoolManager.Instance.AvailableGameObject();
+        _projectileObj.transform.SetPositionAndRotation(transform.position - _projectileOffset, Quaternion.Euler(Vector3.zero));
+        _projectileObj.SetActive(true);
+        _projectileObj.GetComponent<Rigidbody2D>().velocity = dir * _enemyData.enemyProjectileSpeed;
+        yield return new WaitForSeconds(_shootingFrequency);
+        StartCoroutine(SingleDirectionalShoot(dir));
+    }
+
+    private void MultipleMirrorShoots(Vector2 dir)
+    {
+        StartCoroutine(SingleDirectionalShoot(new Vector2(1, -1)));
+        StartCoroutine(SingleDirectionalShoot(new Vector2(-1, -1)));
     }
 
 }

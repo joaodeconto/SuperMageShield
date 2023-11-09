@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SuperMageShield
 {
@@ -10,6 +11,8 @@ namespace SuperMageShield
         private SpriteRenderer _shieldRenderer;
         private bool _isShieldRaised = false;
 
+        public static UnityAction<float> ReflectedProjectile;
+
         public float ShieldRaiseSpeed { get { return _shieldData.shieldRaiseSpeed; } }
         public float ShieldDuration { get { return _shieldData.shieldDuration; } }
         public float ShieldSize { get { return _shieldData.shieldSize; } }
@@ -19,6 +22,17 @@ namespace SuperMageShield
         {
             InitShield();
             transform.localScale = Vector2.zero;
+        }
+
+        protected void OnCollisionEnter2D(Collision2D collision)
+        {
+            GameObject _projectileObj = collision.gameObject;
+            if (_projectileObj.CompareTag("Projectile"))
+            {
+                ProjectileController pc = _projectileObj.GetComponent<ProjectileController>();
+                pc.HitShield();
+                ReflectedProjectile(pc.ProjectileDamage);
+            }
         }
 
         private void InitShield()

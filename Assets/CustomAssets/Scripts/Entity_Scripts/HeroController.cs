@@ -17,9 +17,9 @@ namespace SuperMageShield
             get
             {
                 if(_currentHeroMove.x > 0)
-                    return transform.position.x < 1;
+                    return transform.position.x < _heroData.offBounds;
                 else if(_currentHeroMove.x < 0)
-                    return transform.position.x > -1; 
+                    return transform.position.x > _heroData.offBounds *-1; 
                 else return true;
             }
         }

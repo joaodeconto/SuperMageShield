@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5fa622ee7f8dc429601bdd86ae60c1, type: 3}
+  m_Name: Projectile (0)
+  m_EditorClassIdentifier: 
+  entityName: Simple Shoot
+  entityColor: {r: 1, g: 0.91147983, b: 0, a: 0}
+  entityNumber: 0
+  entityPrefab: {fileID: 2423029239443762642, guid: d71dc73de2c273b4eb3da78efe332227, type: 3}
+  entitySpawnPos: {x: 0, y: 0}
+  entityHealth: 0
+  entityScore: 0
+  projectileResistance: 2
+  projectileDamage: 20

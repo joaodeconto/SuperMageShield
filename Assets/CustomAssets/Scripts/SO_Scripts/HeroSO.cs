@@ -1,9 +1,15 @@
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Hero", menuName = "Entities/Hero")]
-public class HeroSO : EntitySO
+
+namespace SuperMageShield
 {
-    public float heroSpeed;
-    public float heroMaxHealth;
+    [CreateAssetMenu(fileName = "Hero", menuName = "Entities/Hero")]
+    public class HeroSO : EntitySO
+    {
+        public float heroSpeed;
+        public float heroMaxHealth;
+        public float speedBuff;
+        public float offBounds;
+    }
 }
