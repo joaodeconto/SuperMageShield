@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,8 +16,10 @@ namespace SuperMageShield
         [SerializeField] private TMP_Text textScore;
         [SerializeField] private TMP_Text textVillages;
         [SerializeField] private TMP_Text textLevel;
+        [SerializeField] private TMP_Text textResult;
 
         private int _currentVillages;
+        private int _currentLevel;
         void Start()
         {
             UpdateScore(0);
@@ -26,6 +29,8 @@ namespace SuperMageShield
             }
 
             _currentVillages = gmData.initialVillages;
+            _currentLevel = -1;
+            NextStage();
             ShieldController.OnReflectedProjectile += UpdateShieldPower;
             EntityController.OnEntityDefeated += HandleEntityDefeated;
         }
@@ -54,6 +59,8 @@ namespace SuperMageShield
             Debug.Log("Score +" + value);
             gmData.currentScore += (int)value;
             textScore.text = gmData.currentScore.ToString();
+            if (gmData.CheckScoreStage(gmData.currentScore) > _currentLevel)
+                NextStage();
         }
 
         void UpdateVillage()
@@ -63,17 +70,46 @@ namespace SuperMageShield
             textVillages.text = _currentVillages.ToString();
             if (_currentVillages == 0)
             {
-                GameOver();
+                GameOverDefeat();
             }
         }
 
-        void GameOver()
+        private IEnumerator ShowDelayText(string text, float delay)
         {
+            textResult.gameObject.SetActive(true);
+            textResult.text = text;
+            yield return new WaitForSeconds(delay);
 
+            textResult.gameObject.SetActive(false);
         }
-        private void Update()
-        {
 
+        private void ShowStaticText(string text)
+        {
+            textResult.gameObject.SetActive(true);
+            textResult.text = text;
+        }
+
+        private void NextStage()
+        {
+            _currentLevel++;
+
+            if (_currentLevel > gmData.maxLevels)
+            {
+                GameOverVictory();
+            }
+            else
+            {
+                StartCoroutine(ShowDelayText("Level " + _currentLevel, 2f));
+            }
+        }
+
+        private void GameOverVictory()
+        {
+            ShowStaticText("WINNER, A Glorious Victory");
+        }
+        private void GameOverDefeat()
+        {
+            ShowStaticText("DEFEAT, Shame and Despair");
         }
     }
 }

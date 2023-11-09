@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 namespace SuperMageShield
@@ -10,7 +11,21 @@ namespace SuperMageShield
         private Vector2 _lastHeroMov;
         private Vector3 _currentHeroMove;
         private bool _isMoving;
-        public float HeroSpeed { get { return _heroData.heroSpeed; } }
+        private bool _buffAffecting;
+        private float _buffSpeed;
+        private float _buffPower;
+        private float _buffShield;
+        public float HeroSpeed 
+        {
+            get 
+            {
+                if(_buffAffecting)
+                {
+                    return _heroData.heroSpeed * _buffSpeed;
+                }
+                return _heroData.heroSpeed;
+            } 
+        }
 
         public bool CanMove
         {
@@ -28,10 +43,30 @@ namespace SuperMageShield
         {
             _heroRenderer = GetComponent<SpriteRenderer>();
         }
-        void Start()
-        {
 
+        public void SpeedBuff(float buffValue, float buffDuration)
+        {
+            _buffSpeed = buffValue;
+            StartCoroutine(BuffDuration(buffDuration));
         }
+        public void PowerBuff(float buffValue, float buffDuration)
+        {
+            _buffPower = buffValue;
+            StartCoroutine(BuffDuration(buffDuration));
+        }
+        public void ShieldBuff(float buffValue, float buffDuration)
+        {
+            _buffShield = buffValue;
+            StartCoroutine(BuffDuration(buffDuration));
+        }
+
+        private IEnumerator BuffDuration(float buffValue)
+        {
+            _buffAffecting = true;
+            yield return new WaitForSeconds(buffValue);
+        }
+        
+
         private void Update()
         {
             if (_isMoving && CanMove)

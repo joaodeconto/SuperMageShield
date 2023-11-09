@@ -31,7 +31,7 @@ namespace SuperMageShield
                 _healthFeedback.text = _healthCurrent.ToString();
         }
 
-        protected void OnTriggerEnter2D(Collider2D collision)
+        protected virtual void OnTriggerEnter2D(Collider2D collision)
         {
             _projectileObj = collision.gameObject;
             if (_projectileObj.CompareTag("Projectile"))
@@ -43,7 +43,7 @@ namespace SuperMageShield
                     DoDestroy();
             }
         }
-        protected void OnCollisionEnter2D(Collision2D collision)
+        protected virtual void OnCollisionEnter2D(Collision2D collision)
         {
             _projectileObj = collision.gameObject;
             if (_projectileObj.CompareTag("Projectile"))
