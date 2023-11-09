@@ -10,6 +10,9 @@ namespace SuperMageShield
     {
         [SerializeField] private GameManagerSO gmData;
 
+        [Header("SpawnWaves")]
+        [SerializeField]private List<GameObject> waveList;
+
         [Header("UI Elements")]
         [SerializeField] private string gameName;
         [SerializeField] private List<Slider> sliderStats;
@@ -22,6 +25,9 @@ namespace SuperMageShield
         private int _currentLevel;
         void Start()
         {
+            waveList[0].SetActive(true);
+
+            gmData.currentScore = 0;
             UpdateScore(0);
             foreach (var slider in sliderStats)
             {
@@ -52,7 +58,7 @@ namespace SuperMageShield
         {
             Debug.Log("shield power +" + value);
             gmData.heroStats[0] += value;
-            sliderStats[0].value = value;
+            sliderStats[0].value = gmData.heroStats[0];
         }
         void UpdateScore(float value)
         {
@@ -99,6 +105,7 @@ namespace SuperMageShield
             }
             else
             {
+                waveList[_currentLevel].SetActive(true);
                 StartCoroutine(ShowDelayText("Level " + _currentLevel, 2f));
             }
         }

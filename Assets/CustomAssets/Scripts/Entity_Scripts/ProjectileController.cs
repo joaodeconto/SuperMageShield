@@ -17,6 +17,7 @@ namespace SuperMageShield
             if(_spriteRenderer == null)
                 _spriteRenderer = GetComponent<SpriteRenderer>();
             _spriteRenderer.color = _projectileData.entityColor;
+            transform.localScale = Vector3.one;
             StartCoroutine(AwaitToHit());
         }
         private IEnumerator AwaitToHit()
@@ -49,6 +50,7 @@ namespace SuperMageShield
         {
             if (_canHit)
             {
+                transform.localScale *= 1.2f;
                 _spriteRenderer.color = Color.magenta;
                 StartCoroutine(AwaitToHit());
             }

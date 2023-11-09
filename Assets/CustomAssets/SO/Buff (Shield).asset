@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 226e36ac4e36bd14fbbd8293d2e036e5, type: 3}
-  m_Name: Shield (0)
+  m_Script: {fileID: 11500000, guid: 9b32f3573d0e0544296d6cb5fd63a52d, type: 3}
+  m_Name: Buff (Shield)
   m_EditorClassIdentifier: 
-  entityName: Simple Shield
-  entityColor: {r: 0.7418041, g: 0, b: 1, a: 0}
+  entityName: Cure Villagers
+  entityColor: {r: 0, g: 0, b: 0, a: 0}
   entityNumber: 0
-  entityPrefab: {fileID: 0}
+  entityPrefab: {fileID: 6807819933937754970, guid: 9b346e25cea9aa94bb6e16c2cf2feae3, type: 3}
   entitySpawnPos: {x: 0, y: 0}
   entityHealth: 0
-  entityScore: 0
-  shieldRaiseSpeed: 6
-  shieldDuration: 1
-  shieldSize: 2
+  entityScore: 100
+  type: 1
+  buffFallSpeed: 2
+  buffDuration: 1
+  buffValue: 50

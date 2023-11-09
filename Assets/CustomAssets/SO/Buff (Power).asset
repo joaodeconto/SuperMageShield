@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 226e36ac4e36bd14fbbd8293d2e036e5, type: 3}
-  m_Name: Shield (0)
+  m_Script: {fileID: 11500000, guid: 9b32f3573d0e0544296d6cb5fd63a52d, type: 3}
+  m_Name: Buff (Power)
   m_EditorClassIdentifier: 
-  entityName: Simple Shield
-  entityColor: {r: 0.7418041, g: 0, b: 1, a: 0}
+  entityName: Double Reflection
+  entityColor: {r: 0, g: 0, b: 0, a: 0}
   entityNumber: 0
-  entityPrefab: {fileID: 0}
+  entityPrefab: {fileID: 1201015275109745065, guid: c67602824b966cd418273eca887e81ce, type: 3}
   entitySpawnPos: {x: 0, y: 0}
   entityHealth: 0
-  entityScore: 0
-  shieldRaiseSpeed: 6
-  shieldDuration: 1
-  shieldSize: 2
+  entityScore: 6000
+  type: 2
+  buffFallSpeed: 2
+  buffDuration: 5
+  buffValue: 2

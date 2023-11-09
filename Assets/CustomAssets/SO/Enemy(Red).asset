@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cf1c649b437957439fe8949a98cb8bb, type: 3}
-  m_Name: Enemy(2)
+  m_Name: Enemy(Red)
   m_EditorClassIdentifier: 
-  entityName: Obsidian Skull
-  entityColor: {r: 0, g: 0, b: 0, a: 0}
+  entityName: Crimson Skull
+  entityColor: {r: 0.6320754, g: 0.020870427, b: 0.020870427, a: 0}
   entityNumber: 0
   entityPrefab: {fileID: 8682032921086981652, guid: fc41a13120109e144996afd8332b7acd, type: 3}
   entitySpawnPos: {x: 0, y: 0}
-  entityHealth: 300
-  entityScore: 1200
+  entityHealth: 1500
+  entityScore: 30000
   enemyProjectile: {fileID: 2423029239443762642, guid: d71dc73de2c273b4eb3da78efe332227, type: 3}
-  enemyProjectileSpeed: 2
+  enemyProjectileSpeed: 4
   enemyAnimationSpeed: 0
-  enemyLevel: 3
-  shootingFrequency: 2
+  enemyLevel: 1
+  shootingFrequency: 4
+  buffDropChance: 0.2
