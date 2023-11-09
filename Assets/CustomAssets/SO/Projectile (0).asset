@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Projectile (0)
   m_EditorClassIdentifier: 
   entityName: Simple Shoot
-  entityColor: {r: 1, g: 0.91147983, b: 0, a: 0}
+  entityColor: {r: 1, g: 0.98596007, b: 0.8443396, a: 1}
   entityNumber: 0
   entityPrefab: {fileID: 2423029239443762642, guid: d71dc73de2c273b4eb3da78efe332227, type: 3}
   entitySpawnPos: {x: 0, y: 0}

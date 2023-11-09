@@ -12,12 +12,10 @@ namespace SuperMageShield
         private float _canHitOffset = 1f;
         private bool _canHit = false;
 
-        private void Start()
-        {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-        }
         private void OnEnable()
         {
+            if(_spriteRenderer == null)
+                _spriteRenderer = GetComponent<SpriteRenderer>();
             _spriteRenderer.color = _projectileData.entityColor;
             StartCoroutine(AwaitToHit());
         }

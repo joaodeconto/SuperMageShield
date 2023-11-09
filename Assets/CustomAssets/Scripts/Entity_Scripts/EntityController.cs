@@ -1,6 +1,7 @@
 
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SuperMageShield
 {
@@ -17,6 +18,9 @@ namespace SuperMageShield
         protected GameObject _projectileObj;
 
         protected float _healthCurrent;
+
+
+        public static UnityAction<EntitySO> OnEntityDefeated;
 
         protected void Awake()
         {
@@ -62,6 +66,8 @@ namespace SuperMageShield
 
         protected void DoDestroy()
         {
+            OnEntityDefeated(_entityData);
+
             if (_pointsFeedback != null)
                 _pointsFeedback.text = _entityData.entityScore.ToString();
 

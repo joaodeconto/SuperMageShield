@@ -11,7 +11,7 @@ namespace SuperMageShield
         private SpriteRenderer _shieldRenderer;
         private bool _isShieldRaised = false;
 
-        public static UnityAction<float> ReflectedProjectile;
+        public static UnityAction<float> OnReflectedProjectile;
 
         public float ShieldRaiseSpeed { get { return _shieldData.shieldRaiseSpeed; } }
         public float ShieldDuration { get { return _shieldData.shieldDuration; } }
@@ -31,7 +31,7 @@ namespace SuperMageShield
             {
                 ProjectileController pc = _projectileObj.GetComponent<ProjectileController>();
                 pc.HitShield();
-                ReflectedProjectile(pc.ProjectileDamage);
+                OnReflectedProjectile(pc.ProjectileDamage);
             }
         }
 
