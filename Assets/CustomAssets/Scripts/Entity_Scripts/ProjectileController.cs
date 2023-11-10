@@ -8,14 +8,21 @@ namespace SuperMageShield
         // Start is called before the first frame update
         [SerializeField] private ProjectileSO _projectileData;
         private SpriteRenderer _spriteRenderer;
+        private Rigidbody2D _rigidbody;
         private float _projectileResistance;
         private float _canHitOffset = 1f;
         private bool _canHit = false;
+        private bool _hitShiled = false;
 
+
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
         private void OnEnable()
         {
-            if(_spriteRenderer == null)
-                _spriteRenderer = GetComponent<SpriteRenderer>();
+            _hitShiled = false;
             _spriteRenderer.color = _projectileData.entityColor;
             transform.localScale = Vector3.one;
             StartCoroutine(AwaitToHit());
@@ -31,7 +38,7 @@ namespace SuperMageShield
             get { return _projectileData.projectileDamage; }
         }
 
-        public void Hit()
+        public bool Hit()
         {
             if (_canHit)
             {            
@@ -44,17 +51,20 @@ namespace SuperMageShield
                 else
                     StartCoroutine(AwaitToHit());
             }
+            return _canHit;
         }
 
         public void HitShield()
         {
             if (_canHit)
             {
-                transform.localScale *= 1.2f;
+                _hitShiled = true;
+
+                //transform.localScale *= 1.2f;
+                _rigidbody.velocity *= 1.2f;
                 _spriteRenderer.color = Color.magenta;
-                StartCoroutine(AwaitToHit());
+                //StartCoroutine(AwaitToHit());
             }
         }
-
     }
 }
