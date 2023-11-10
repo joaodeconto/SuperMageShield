@@ -16,7 +16,6 @@ namespace SuperMageShield
         public float ShieldRaiseSpeed { get { return _shieldData.shieldRaiseSpeed; } }
         public float ShieldDuration { get { return _shieldData.shieldDuration; } }
         public float ShieldSize { get { return _shieldData.shieldSize; } }
-
         public float ShieldDeflectionForce { get { return _shieldData.shieldDeflectionMultiplier; } }
 
 

@@ -7,13 +7,35 @@ public class EnemyController : EntityController
     private EnemySO _enemyData;
     private float _shootingFrequency;
     private int _enemyLevel;
+    private Animator _animator;
     private Vector3 _projectileOffset = new(0, .5F, 0);
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         _enemyData = _entityData as EnemySO;
         _shootingFrequency = _enemyData.shootingFrequency;
+        _animator = GetComponent<Animator>();
+    }
+    private void OnEnable()
+    {
+
+        StartCoroutine(WaitSpawn());
         HandleEnemyLevel();
+    }
+
+    private IEnumerator WaitSpawn()
+    {
+        _animator.SetInteger("State", 0);
+        yield return new WaitForSeconds(.1f);
+        _animator.SetInteger("State", 1);
+    }
+
+    private IEnumerator WaitDeath()
+    {
+        _animator.SetInteger("State", 2);
+        yield return new WaitForSeconds(.3f);
+        gameObject.SetActive(false);
     }
 
     private void HandleEnemyLevel()
@@ -23,7 +45,7 @@ public class EnemyController : EntityController
         {
             case 0: StartCoroutine(SingleForwardShoot()); break;
             case 1: StartCoroutine(SingleDirectionalShoot(new Vector2(1, -1))); break;
-            case 2: AllDirectionShoot(new Vector2(1, -1)); break;
+            case 2: StartCoroutine(AllDirectionShoot()); break;
         }
     }
 
@@ -50,14 +72,17 @@ public class EnemyController : EntityController
         StartCoroutine(SingleDirectionalShoot(dir));
     }
 
-    private void AllDirectionShoot(Vector2 dir)
+    private IEnumerator AllDirectionShoot()
     {
-        int random = Random.Range(0, 1);
-
-        if (random > 0)
-            StartCoroutine(SingleForwardShoot());
-        else
-            StartCoroutine(SingleDirectionalShoot(dir));
+        int random = Random.Range(-1, 1);
+        Vector2 dir = Vector2.up; 
+         dir.x = random;
+        _projectileObj = PoolManager.Instance.AvailableGameObject();
+        _projectileObj.transform.SetPositionAndRotation(transform.position - _projectileOffset, Quaternion.Euler(Vector3.zero));
+        _projectileObj.SetActive(true);
+        _projectileObj.GetComponent<Rigidbody2D>().velocity = dir * _enemyData.enemyProjectileSpeed;
+        yield return new WaitForSeconds(_shootingFrequency);
+        StartCoroutine(AllDirectionShoot());
     }
 
     private void DropChance()
@@ -77,8 +102,6 @@ public class EnemyController : EntityController
             _pointsFeedback.text = _entityData.entityScore.ToString();
 
         DropChance();
-
-        gameObject.SetActive(false);
+        StartCoroutine(WaitDeath());
     }
-
 }

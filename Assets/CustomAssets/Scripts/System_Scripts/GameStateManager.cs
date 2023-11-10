@@ -18,7 +18,7 @@ namespace SuperMageShield
         public GameState _currentState;
         public static GameStateManager Instance;
 
-        public static UnityAction<GameState> StateChanged;
+        public static UnityAction<GameState> OnStateChanged;
 
         private GameState _lastState;
 
@@ -26,10 +26,14 @@ namespace SuperMageShield
         {
             Instance = this;
         }
+        private void Start()
+        {
+            UpdateState(GameState.Start);
+        }
         public void UpdateState(GameState newState)
         {
             _lastState = _currentState;
-            StateChanged(newState);
+            OnStateChanged(newState);
             _currentState = newState;
         }
     }

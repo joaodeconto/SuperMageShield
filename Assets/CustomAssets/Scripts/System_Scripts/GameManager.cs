@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,6 +15,8 @@ namespace SuperMageShield
         [SerializeField] private List<GameObject> waveList;
 
         [Header("UI Elements")]
+        [SerializeField] private Transform leftPanel;
+        [SerializeField] private Transform startingPanel;
         [SerializeField] private string gameName;
         [SerializeField] private List<Slider> sliderStats;
         [SerializeField] private TMP_Text textScore;
@@ -21,28 +24,81 @@ namespace SuperMageShield
         [SerializeField] private TMP_Text textLevel;
         [SerializeField] private TMP_Text textResult;
 
+        [SerializeField] private List<GameObject> _ingameObjects;
+
         private int _currentVillages;
         private int _currentLevel;
-        void Start()
-        {
-            ClearStats();                   
+        private bool _gameStarted;
+        private bool _victory;
 
+
+        private void Update()
+        {
+           if(GameStateManager.Instance._currentState == GameState.Start && Input.anyKey)
+           {
+                GameStateManager.Instance.UpdateState(GameState.Playing);
+           }
+        }
+
+        private void GameStart()
+        {
+            foreach (var l in waveList)
+            {
+                l.SetActive(false);
+            }
+            _gameStarted = true;
+            ClearStats();   
             _currentVillages = gmData.initialVillages;
             _currentLevel = -1;
             NextStage();
         }
 
-        private void OnEnable()
+        private void Awake()
         {
-
+            GameStateManager.OnStateChanged += HandleState;
             ShieldController.OnReflectedProjectile += UpdateShieldPower;
             EntityController.OnEntityDefeated += HandleEntityDefeated;
         }
-
         private void OnDisable()
         {
+            GameStateManager.OnStateChanged -= HandleState;
             ShieldController.OnReflectedProjectile -= UpdateShieldPower;
             EntityController.OnEntityDefeated -= HandleEntityDefeated;
+        }
+
+        private void ToggleIngameObjects(bool activate)
+        {
+            foreach(var obj in _ingameObjects)
+            {
+                obj.SetActive(activate);
+            }
+        }
+        private void HandleState(GameState gameState)
+        {
+            switch (gameState)
+            {
+                case (GameState)0:
+                    ShowStaticText("");
+                    ToggleIngameObjects(false);
+                    startingPanel.gameObject.SetActive(true);
+                    leftPanel.gameObject.SetActive(false);
+                    break;
+                case (GameState)1:
+                    ToggleIngameObjects(true);
+                    startingPanel.gameObject.SetActive(false);
+                    leftPanel.gameObject.SetActive(true);
+                    if (!_gameStarted)
+                        GameStart();
+                    break;
+                case (GameState)2:
+                    break;
+                case (GameState)3:
+                case (GameState)4:
+                    _gameStarted = false;
+                    ToggleIngameObjects(false);
+                    PoolManager.Instance.ResetPool();
+                    break;
+            }
         }
 
         void HandleEntityDefeated(EntitySO entity)
@@ -94,7 +150,8 @@ namespace SuperMageShield
             textVillages.text = _currentVillages.ToString();
             if (_currentVillages == 0)
             {
-                GameOverDefeat();
+                _victory = false;
+                StartCoroutine(GameOver());
             }
         }
 
@@ -115,11 +172,14 @@ namespace SuperMageShield
 
         private void NextStage()
         {
+            if (!_gameStarted) return;
+
             _currentLevel++;
 
             if (_currentLevel > gmData.maxLevels)
             {
-                GameOverVictory();
+                _victory = true;
+                StartCoroutine(GameOver());
             }
             else
             {
@@ -128,13 +188,22 @@ namespace SuperMageShield
             }
         }
 
-        private void GameOverVictory()
-        {
-            ShowStaticText("WINNER, A Glorious Victory");
-        }
-        private void GameOverDefeat()
-        {
-            ShowStaticText("DEFEAT, Shame and Despair");
+        private IEnumerator GameOver()
+        {            
+            if (_victory)
+            {
+                ShowStaticText("WINNER, A Glorious Victory");
+                GameStateManager.Instance.UpdateState(GameState.Victory);
+            }
+            else
+            {
+                ShowStaticText("DEFEAT, Shame and Despair");
+                GameStateManager.Instance.UpdateState(GameState.Defeated);
+            }
+
+            yield return new WaitForSeconds(5);
+
+            GameStateManager.Instance.UpdateState(GameState.Start);
         }
     }
 }

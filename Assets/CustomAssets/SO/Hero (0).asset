@@ -16,10 +16,10 @@ MonoBehaviour:
   entityColor: {r: 0, g: 0.26723528, b: 1, a: 1}
   entityNumber: 0
   entityPrefab: {fileID: 8181069325040045412, guid: 84d66373e8160ea4da13f9ad21a08897, type: 3}
-  entitySpawnPos: {x: 0, y: 0}
+  entitySpawnPos: {x: 0, y: -3.28}
   entityHealth: 0
   entityScore: 0
-  heroSpeed: 5
+  heroSpeed: 3.2
   heroMaxHealth: 5
   speedBuff: 0
   offBounds: 5

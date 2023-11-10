@@ -11,6 +11,7 @@ namespace SuperMageShield
         private Vector2 _lastHeroMov;
         private Vector3 _currentHeroMove;
         private bool _isMoving;
+        private bool _blockMove;
         private bool _buffAffecting;
         private float _buffSpeed = 1;
         private float _buffPower = 1;
@@ -42,7 +43,42 @@ namespace SuperMageShield
         private void Awake()
         {
             _heroRenderer = GetComponent<SpriteRenderer>();
+            GameStateManager.OnStateChanged += HandleState;
         }
+
+        private void OnDestroy()
+        {
+            GameStateManager.OnStateChanged -= HandleState;
+        }
+        private void Update()
+        {
+            if (_isMoving && CanMove && !_blockMove)
+                DoMoveHero(_currentHeroMove);
+        }
+
+        private void HandleState(GameState gameState)
+        {
+            switch(gameState)
+            {
+                case (GameState)0:                     
+                    _blockMove = true;
+                    transform.position = _heroData.entitySpawnPos;
+                    break;
+                case (GameState)1: 
+                    _blockMove = false;
+                    break;
+                case (GameState)2:
+                    _blockMove = true;
+                    break;
+                case (GameState)3:
+                case (GameState)4:
+                    _blockMove = true;
+                    transform.position = _heroData.entitySpawnPos;
+                    break;
+            }
+        }
+
+        #region Buffs
 
         public void SpeedBuff(float buffValue, float buffDuration)
         {
@@ -59,19 +95,16 @@ namespace SuperMageShield
             _buffShield = buffValue;
             StartCoroutine(BuffDuration(buffDuration));
         }
-
         private IEnumerator BuffDuration(float buffValue)
         {
             _buffAffecting = true;
             yield return new WaitForSeconds(buffValue);
+            _buffAffecting = false;
         }
-        
 
-        private void Update()
-        {
-            if (_isMoving && CanMove)
-                DoMoveHero(_currentHeroMove);
-        }
+        #endregion
+
+        #region Movement
 
         public void OnMoveHero(InputAction.CallbackContext context)
         {
@@ -94,7 +127,7 @@ namespace SuperMageShield
                 _heroRenderer.flipX = true;
             else if (_lastHeroMov.magnitude > 0 && _heroRenderer.flipX)
                 _heroRenderer.flipX = false;
-
         }
     }
+    #endregion
 }

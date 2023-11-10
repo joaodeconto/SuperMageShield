@@ -17,6 +17,15 @@ public class PoolManager : MonoBehaviour
         Instance = this;
     }
 
+    public void ResetPool()
+    {
+        foreach (var pool in _pool)
+        {
+            pool.SetActive(false);
+        }
+        _pool.Clear();
+    }
+
     public GameObject AvailableGameObject()
     {
         foreach (var item in _pool)

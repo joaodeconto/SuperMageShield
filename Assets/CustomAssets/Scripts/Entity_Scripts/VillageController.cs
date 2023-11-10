@@ -5,13 +5,12 @@ namespace SuperMageShield
 {
     public class VillageController : EntityController
     {
-        private VillageSO _villageData;        
-
-        private void Start()
+        private VillageSO _villageData;
+        protected override void Start()
         {
+            base.Start();
             _villageData =  _entityData as VillageSO;
         }
-
         protected override void OnTriggerEnter2D(Collider2D collision)
         {
             _projectileObj = collision.gameObject;
