@@ -52,6 +52,8 @@ public class EnemyController : EntityController
 
     private void MultipleMirrorShoots(Vector2 dir)
     {
+        int random = Random.Range(-1, 1);
+        dir.x *= random == 0 ? -1 : 1;
         StartCoroutine(SingleDirectionalShoot(new Vector2(1, -1)));
         StartCoroutine(SingleDirectionalShoot(new Vector2(-1, -1)));
     }
@@ -61,7 +63,7 @@ public class EnemyController : EntityController
         float random = Random.Range(0f, 1f);
         if (random < _enemyData.buffDropChance)
         {
-            BuffManager.Instance.DropBuff(this.transform.position);
+            BuffManager.Instance.DropBuff(this.transform.position, _enemyData.BuffType);
         }
     }
     protected override void DoDestroy()

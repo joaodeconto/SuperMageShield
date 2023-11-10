@@ -19,4 +19,9 @@ public class BuffManager : MonoBehaviour
         _randomBuff = Random.Range(0, buffList.Count);
         Instantiate(buffList[(int)_randomBuff].entityPrefab, position, Quaternion.identity);
     }
+
+    public void DropBuff(Vector2 position, BuffType buffType)
+    {
+        Instantiate(buffList[(int)buffType].entityPrefab, position, Quaternion.identity);
+    }
 }

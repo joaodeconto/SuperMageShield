@@ -8,17 +8,12 @@ namespace SuperMageShield
     public class EntityController : MonoBehaviour
     {
         [SerializeField] protected EntitySO _entityData;
-
         [SerializeField] protected TMP_Text _healthFeedback;
-
         [SerializeField] protected TMP_Text _pointsFeedback;
 
         protected Collider2D _collider;
-
         protected GameObject _projectileObj;
-
         protected float _healthCurrent;
-
 
         public static UnityAction<EntitySO> OnEntityDefeated;
 
@@ -43,6 +38,7 @@ namespace SuperMageShield
                     DoDestroy();
             }
         }
+
         protected virtual void OnCollisionEnter2D(Collision2D collision)
         {
             _projectileObj = collision.gameObject;

@@ -11,5 +11,6 @@ namespace SuperMageShield
         public int enemyLevel;
         public float shootingFrequency;
         public float buffDropChance = .2f;
+        public BuffType BuffType;
     }
 }
