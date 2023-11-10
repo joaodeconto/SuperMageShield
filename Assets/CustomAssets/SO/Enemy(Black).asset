@@ -19,9 +19,9 @@ MonoBehaviour:
   entitySpawnPos: {x: 0, y: 0}
   entityHealth: 50
   entityScore: 2000
-  enemyProjectile: {fileID: 2423029239443762642, guid: d71dc73de2c273b4eb3da78efe332227, type: 3}
+  enemyProjectile: {fileID: 2423029239443762642, guid: 3fcbb53880b1e0b42b38ec0b33047928, type: 3}
   enemyProjectileSpeed: 2
   enemyAnimationSpeed: 0
-  enemyLevel: 3
+  enemyLevel: 2
   shootingFrequency: 5
   buffDropChance: 0.2
