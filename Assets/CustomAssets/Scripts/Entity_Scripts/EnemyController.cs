@@ -43,6 +43,9 @@ public class EnemyController : EntityController
 
     private IEnumerator SingleDirectionalShoot(Vector2 dir)
     {
+        int random = UnityEngine.Random.Range(0, 1);
+        dir.x *= random == 0 ? -1:1;
+
         _projectileObj = PoolManager.Instance.AvailableGameObject();
         _projectileObj.transform.SetPositionAndRotation(transform.position - _projectileOffset, Quaternion.Euler(Vector3.zero));
         _projectileObj.SetActive(true);

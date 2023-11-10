@@ -184,8 +184,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3040004316479888249}
   - component: {fileID: 6726357872276479795}
-  - component: {fileID: 227787872872730226}
   - component: {fileID: 421836162691247070}
+  - component: {fileID: 8180649267660969533}
   m_Layer: 0
   m_Name: Village (0)
   m_TagString: Untagged
@@ -203,11 +203,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.75, y: -1.68, z: 0}
   m_LocalScale: {x: 1.3203473, y: 1.3203473, z: 1.3203473}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5580616001856164696}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6726357872276479795
 SpriteRenderer:
@@ -261,8 +261,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &227787872872730226
-CircleCollider2D:
+--- !u!114 &421836162691247070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140660193196217349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd87d7ec5c4ca449a0f9d49c209e858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entityData: {fileID: 11400000, guid: 7a4a2cda67e0631448df3ca291bc5fda, type: 2}
+  _healthFeedback: {fileID: 8832249191620086337}
+  _pointsFeedback: {fileID: 0}
+--- !u!61 &8180649267660969533
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -290,24 +305,19 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -3.27}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.68, y: 7.68}
+    newSize: {x: 2.88, y: 2.88}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 1.4399999
---- !u!114 &421836162691247070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8140660193196217349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cd87d7ec5c4ca449a0f9d49c209e858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _entityData: {fileID: 11400000, guid: 7a4a2cda67e0631448df3ca291bc5fda, type: 2}
-  _healthFeedback: {fileID: 8832249191620086337}
-  _pointsFeedback: {fileID: 0}
+  m_Size: {x: 8.24, y: 1.67}
+  m_EdgeRadius: 0
