@@ -25,3 +25,4 @@ MonoBehaviour:
   enemyLevel: 1
   shootingFrequency: 10
   buffDropChance: 0.2
+  BuffType: 2
