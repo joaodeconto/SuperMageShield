@@ -17,7 +17,7 @@ MonoBehaviour:
   entityNumber: 0
   entityPrefab: {fileID: 8682032921086981652, guid: fc41a13120109e144996afd8332b7acd, type: 3}
   entitySpawnPos: {x: 0, y: 0}
-  entityHealth: 40
+  entityHealth: 20
   entityScore: 500
   enemyProjectile: {fileID: 2423029239443762642, guid: 024419d4ae3adc44ba80402a10fdd025, type: 3}
   enemyProjectileSpeed: 2
