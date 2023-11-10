@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 3136755768509811877, guid: 1e0999f6393a92a4eb7cc33080ddd759, type: 3}
       propertyPath: _entityData
       value: 
-      objectReference: {fileID: 11400000, guid: 27f2fe9450efdcc49a6983b3526ff0c3, type: 2}
+      objectReference: {fileID: 11400000, guid: aee7f96e2dbc08f45a0d261675ebddba, type: 2}
     - target: {fileID: 6820038412191003183, guid: 1e0999f6393a92a4eb7cc33080ddd759, type: 3}
       propertyPath: m_text
       value: '20
