@@ -9,5 +9,6 @@ namespace SuperMageShield
         public float shieldRaiseSpeed;
         public float shieldDuration;
         public float shieldSize;
+        public float shieldDeflectionMultiplier;
     }
 }

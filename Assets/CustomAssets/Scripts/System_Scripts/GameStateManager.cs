@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SuperMageShield
 { 
@@ -15,16 +16,23 @@ namespace SuperMageShield
 
     public class GameStateManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
 
+        public GameState _currentState;
+        public static GameStateManager Instance;
+
+        public static UnityAction<GameState> StateChanged;
+
+        private GameState _lastState;
+
+        private void Awake()
+        {
+            Instance = this;
         }
-
-        // Update is called once per frame
-        void Update()
+        public void UpdateState(GameState newState)
         {
-
+            _lastState = _currentState;
+            StateChanged(newState);
+            _currentState = newState;
         }
     }
 }

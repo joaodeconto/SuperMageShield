@@ -56,13 +56,13 @@ namespace SuperMageShield
             return _canHit;
         }
 
-        public void HitShield()
+        public void HitShield(float deflectionForce)
         {
             if (_canHit)
             {
                 _hitShield = true;
                 //transform.localScale *= 1.2f;
-                _rigidbody.velocity *= 1.2f;
+                _rigidbody.velocity *= deflectionForce;
                 _spriteRenderer.color = Color.magenta;
                 //StartCoroutine(AwaitToHit());
             }

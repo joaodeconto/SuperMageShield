@@ -17,10 +17,11 @@ namespace SuperMageShield
         public float ShieldDuration { get { return _shieldData.shieldDuration; } }
         public float ShieldSize { get { return _shieldData.shieldSize; } }
 
+        public float ShieldDeflectionForce { get { return _shieldData.shieldDeflectionMultiplier; } }
+
 
         public void Start()
         {
-            InitShield();
             transform.localScale = Vector2.zero;
         }
 
@@ -30,14 +31,11 @@ namespace SuperMageShield
             if (_projectileObj.CompareTag("Projectile"))
             {
                 ProjectileController pc = _projectileObj.GetComponent<ProjectileController>();
-                pc.HitShield();
-                OnReflectedProjectile(pc.ProjectileDamage);
+                pc.HitShield(ShieldDeflectionForce);
+                OnReflectedProjectile(1);
             }
         }
 
-        private void InitShield()
-        {
-        }
         public void OnRaiseShield()
         {
             if (!_isShieldRaised)
