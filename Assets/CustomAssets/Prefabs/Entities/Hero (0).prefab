@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4413875346167315174}
   - component: {fileID: 7987123850570860253}
   - component: {fileID: 7612663537846363280}
-  - component: {fileID: 5974456311115034411}
+  - component: {fileID: 6400765438718899760}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -125,10 +125,10 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 7
---- !u!58 &5974456311115034411
-CircleCollider2D:
+--- !u!70 &6400765438718899760
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -159,9 +159,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Offset: {x: 0.027729752, y: 0.23192719}
+  m_Size: {x: 0.9334472, y: 0.28728262}
+  m_Direction: 1
 --- !u!1 &8181069325040045412
 GameObject:
   m_ObjectHideFlags: 0

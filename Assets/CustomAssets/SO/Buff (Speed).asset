@@ -18,8 +18,8 @@ MonoBehaviour:
   entityPrefab: {fileID: 6807819933937754970, guid: 489d473faa73392458f9f4aa1b3cfe36, type: 3}
   entitySpawnPos: {x: 0, y: 0}
   entityHealth: 0
-  entityScore: 100
+  entityScore: 0
   type: 0
-  buffFallSpeed: 2
-  buffDuration: 3
-  buffValue: 2
+  buffFallSpeed: 4
+  buffDuration: 10
+  buffValue: 3
