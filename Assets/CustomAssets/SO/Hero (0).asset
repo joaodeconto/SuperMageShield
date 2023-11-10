@@ -19,7 +19,7 @@ MonoBehaviour:
   entitySpawnPos: {x: 0, y: -3.28}
   entityHealth: 0
   entityScore: 0
-  heroSpeed: 3.2
+  heroSpeed: 3.8
   heroMaxHealth: 5
   speedBuff: 0
   offBounds: 5
