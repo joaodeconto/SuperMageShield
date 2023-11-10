@@ -211,6 +211,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3371660595712023049, guid: fc41a13120109e144996afd8332b7acd, type: 3}
+      propertyPath: _healthFeedback
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371660595712023049, guid: fc41a13120109e144996afd8332b7acd, type: 3}
+      propertyPath: _pointsFeedback
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6622773597563675779, guid: fc41a13120109e144996afd8332b7acd, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1040,6 +1048,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3136755768509811877, guid: 1e0999f6393a92a4eb7cc33080ddd759, type: 3}
+      propertyPath: _healthFeedback
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136755768509811877, guid: 1e0999f6393a92a4eb7cc33080ddd759, type: 3}
+      propertyPath: _pointsFeedback
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6820038412191003183, guid: 1e0999f6393a92a4eb7cc33080ddd759, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1053,7 +1069,8 @@ PrefabInstance:
       value: Enemy (Gray)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2525198290692390171, guid: 1e0999f6393a92a4eb7cc33080ddd759, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e0999f6393a92a4eb7cc33080ddd759, type: 3}
@@ -3285,37 +3302,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3040004316479888249, guid: 767cd959a419eee4398455f777b63fd0, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5580616001856164696, guid: 767cd959a419eee4398455f777b63fd0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -3.06
-      objectReference: {fileID: 0}
     - target: {fileID: 8140660193196217349, guid: 767cd959a419eee4398455f777b63fd0, type: 3}
       propertyPath: m_Name
       value: Village (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8140660193196217349, guid: 767cd959a419eee4398455f777b63fd0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8181421816961211624, guid: 767cd959a419eee4398455f777b63fd0, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 1554090419425691528, guid: de85a3d9b54c7d149a7c43a1a1cf8926, type: 2}
-    - target: {fileID: 8832249191620086337, guid: 767cd959a419eee4398455f777b63fd0, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: de85a3d9b54c7d149a7c43a1a1cf8926, type: 2}
-    - target: {fileID: 8832249191620086337, guid: 767cd959a419eee4398455f777b63fd0, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 1554090419425691528, guid: de85a3d9b54c7d149a7c43a1a1cf8926, type: 2}
-    - target: {fileID: 8832249191620086337, guid: 767cd959a419eee4398455f777b63fd0, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

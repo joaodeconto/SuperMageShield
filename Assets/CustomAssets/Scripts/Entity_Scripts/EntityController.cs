@@ -14,7 +14,6 @@ namespace SuperMageShield
         protected Collider2D _collider;
         protected GameObject _projectileObj;
         protected float _healthCurrent;
-
         public static UnityAction<EntitySO> OnEntityDefeated;
 
         protected void Awake()

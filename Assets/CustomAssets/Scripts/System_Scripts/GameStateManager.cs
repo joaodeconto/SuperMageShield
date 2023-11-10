@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace SuperMageShield
-{ 
+{
     public enum GameState
     {
         Start = 0,
