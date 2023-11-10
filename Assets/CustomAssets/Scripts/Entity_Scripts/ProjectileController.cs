@@ -12,7 +12,7 @@ namespace SuperMageShield
         private float _projectileResistance;
         private float _canHitOffset = 1f;
         private bool _canHit = false;
-        private bool _hitShiled = false;
+        private bool _hitShield = false;
 
 
         private void Awake()
@@ -22,7 +22,7 @@ namespace SuperMageShield
         }
         private void OnEnable()
         {
-            _hitShiled = false;
+            _hitShield = false;
             _spriteRenderer.color = _projectileData.entityColor;
             transform.localScale = Vector3.one;
             StartCoroutine(AwaitToHit());
@@ -37,6 +37,8 @@ namespace SuperMageShield
         {
             get { return _projectileData.projectileDamage; }
         }
+
+        public bool CanHitEnemy { get { return _hitShield; } }
 
         public bool Hit()
         {
@@ -58,8 +60,7 @@ namespace SuperMageShield
         {
             if (_canHit)
             {
-                _hitShiled = true;
-
+                _hitShield = true;
                 //transform.localScale *= 1.2f;
                 _rigidbody.velocity *= 1.2f;
                 _spriteRenderer.color = Color.magenta;

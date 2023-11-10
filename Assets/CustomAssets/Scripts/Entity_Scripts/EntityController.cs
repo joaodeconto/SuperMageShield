@@ -32,7 +32,7 @@ namespace SuperMageShield
             if (_projectileObj.CompareTag("Projectile"))
             {
                 ProjectileController pc = _projectileObj.GetComponent<ProjectileController>();
-                _healthCurrent -= pc.Hit() ? pc.ProjectileDamage : 0;
+                _healthCurrent -= pc.Hit() && pc.CanHitEnemy ? pc.ProjectileDamage : 0;
 
                 if (!CheckHealth())
                     DoDestroy();
@@ -45,7 +45,7 @@ namespace SuperMageShield
             if (_projectileObj.CompareTag("Projectile"))
             {
                 ProjectileController pc = _projectileObj.GetComponent<ProjectileController>();
-                _healthCurrent -= pc.Hit() ? pc.ProjectileDamage : 0;
+                _healthCurrent -= pc.Hit() && pc.CanHitEnemy ? pc.ProjectileDamage : 0;
                 if (!CheckHealth())
                     DoDestroy();
             }

@@ -23,7 +23,7 @@ public class EnemyController : EntityController
         {
             case 0: StartCoroutine(SingleForwardShoot()); break;
             case 1: StartCoroutine(SingleDirectionalShoot(new Vector2(1, -1))); break;
-            case 2: MultipleMirrorShoots(new Vector2(1, -1)); break;
+            case 2: AllDirectionShoot(new Vector2(1, -1)); break;
         }
     }
 
@@ -50,12 +50,14 @@ public class EnemyController : EntityController
         StartCoroutine(SingleDirectionalShoot(dir));
     }
 
-    private void MultipleMirrorShoots(Vector2 dir)
+    private void AllDirectionShoot(Vector2 dir)
     {
-        int random = Random.Range(-1, 1);
-        dir.x *= random == 0 ? -1 : 1;
-        StartCoroutine(SingleDirectionalShoot(new Vector2(1, -1)));
-        StartCoroutine(SingleDirectionalShoot(new Vector2(-1, -1)));
+        int random = Random.Range(0, 1);
+
+        if (random > 0)
+            StartCoroutine(SingleForwardShoot());
+        else
+            StartCoroutine(SingleDirectionalShoot(dir));
     }
 
     private void DropChance()
@@ -66,6 +68,7 @@ public class EnemyController : EntityController
             BuffManager.Instance.DropBuff(this.transform.position, _enemyData.BuffType);
         }
     }
+
     protected override void DoDestroy()
     {
         OnEntityDefeated(_entityData);
