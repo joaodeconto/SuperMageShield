@@ -22,4 +22,4 @@ MonoBehaviour:
   type: 1
   buffFallSpeed: 2
   buffDuration: 1
-  buffValue: 50
+  buffValue: 500

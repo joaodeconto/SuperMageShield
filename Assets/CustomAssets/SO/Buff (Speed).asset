@@ -20,6 +20,6 @@ MonoBehaviour:
   entityHealth: 0
   entityScore: 0
   type: 0
-  buffFallSpeed: 3
+  buffFallSpeed: 4
   buffDuration: 10
-  buffValue: 2
+  buffValue: 3
