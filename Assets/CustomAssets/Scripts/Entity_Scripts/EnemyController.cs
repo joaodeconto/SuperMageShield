@@ -1,16 +1,13 @@
 using SuperMageShield;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class EnemyController : EntityController
 {
     private EnemySO _enemyData;
     private float _shootingFrequency;
     private int _enemyLevel;
-    private Vector3 _projectileOffset = new (0, .5F,0);
+    private Vector3 _projectileOffset = new(0, .5F, 0);
 
     private void Start()
     {
@@ -25,11 +22,10 @@ public class EnemyController : EntityController
         switch (_enemyLevel)
         {
             case 0: StartCoroutine(SingleForwardShoot()); break;
-            case 1: StartCoroutine(SingleDirectionalShoot(new Vector2(1,-1))); break;
+            case 1: StartCoroutine(SingleDirectionalShoot(new Vector2(1, -1))); break;
             case 2: MultipleMirrorShoots(new Vector2(1, -1)); break;
         }
     }
-
 
     private IEnumerator SingleForwardShoot()
     {
@@ -43,8 +39,8 @@ public class EnemyController : EntityController
 
     private IEnumerator SingleDirectionalShoot(Vector2 dir)
     {
-        int random = UnityEngine.Random.Range(0, 1);
-        dir.x *= random == 0 ? -1:1;
+        int random = Random.Range(0, 1);
+        dir.x *= random == 0 ? -1 : 1;
 
         _projectileObj = PoolManager.Instance.AvailableGameObject();
         _projectileObj.transform.SetPositionAndRotation(transform.position - _projectileOffset, Quaternion.Euler(Vector3.zero));
@@ -62,7 +58,7 @@ public class EnemyController : EntityController
 
     private void DropChance()
     {
-        float random = UnityEngine.Random.Range(0f, 1f);
+        float random = Random.Range(0f, 1f);
         if (random < _enemyData.buffDropChance)
         {
             BuffManager.Instance.DropBuff(this.transform.position);
@@ -74,7 +70,9 @@ public class EnemyController : EntityController
 
         if (_pointsFeedback != null)
             _pointsFeedback.text = _entityData.entityScore.ToString();
+
         DropChance();
+
         gameObject.SetActive(false);
     }
 
