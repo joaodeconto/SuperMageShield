@@ -17,8 +17,7 @@ namespace SuperMageShield
         public float ShieldDuration { get { return _shieldData.shieldDuration; } }
         public float ShieldSize { get { return _shieldData.shieldSize; } }
         public float ShieldDeflectionForce { get { return _shieldData.shieldDeflectionMultiplier; } }
-
-
+                
         public void Start()
         {
             transform.localScale = Vector2.zero;
@@ -37,6 +36,7 @@ namespace SuperMageShield
 
         public void OnRaiseShield()
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/counter");
             if (!_isShieldRaised)
                 StartCoroutine(RaisingShield());
         }
