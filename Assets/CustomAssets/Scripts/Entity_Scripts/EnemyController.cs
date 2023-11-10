@@ -7,6 +7,7 @@ public class EnemyController : EntityController
     private EnemySO _enemyData;
     private float _shootingFrequency;
     private int _enemyLevel;
+    private Animator _animator;
     private Vector3 _projectileOffset = new(0, .5F, 0);
 
     protected override void Awake()
@@ -14,10 +15,27 @@ public class EnemyController : EntityController
         base.Awake();
         _enemyData = _entityData as EnemySO;
         _shootingFrequency = _enemyData.shootingFrequency;
+        _animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
+
+        StartCoroutine(WaitSpawn());
         HandleEnemyLevel();
+    }
+
+    private IEnumerator WaitSpawn()
+    {
+        _animator.SetInteger("State", 0);
+        yield return new WaitForSeconds(.1f);
+        _animator.SetInteger("State", 1);
+    }
+
+    private IEnumerator WaitDeath()
+    {
+        _animator.SetInteger("State", 2);
+        yield return new WaitForSeconds(.3f);
+        gameObject.SetActive(false);
     }
 
     private void HandleEnemyLevel()
@@ -84,8 +102,6 @@ public class EnemyController : EntityController
             _pointsFeedback.text = _entityData.entityScore.ToString();
 
         DropChance();
-
-        gameObject.SetActive(false);
+        StartCoroutine(WaitDeath());
     }
-
 }

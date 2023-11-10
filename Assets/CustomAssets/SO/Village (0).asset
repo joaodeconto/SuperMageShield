@@ -17,5 +17,5 @@ MonoBehaviour:
   entityNumber: 0
   entityPrefab: {fileID: 8140660193196217349, guid: 767cd959a419eee4398455f777b63fd0, type: 3}
   entitySpawnPos: {x: 0, y: 0}
-  entityHealth: 61.1
+  entityHealth: 1000
   entityScore: 76.2
