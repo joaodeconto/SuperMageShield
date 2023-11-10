@@ -7,6 +7,7 @@ namespace SuperMageShield
     {
         [SerializeField] private HeroSO _heroData;
         
+        private Animator _animator;
         private SpriteRenderer _heroRenderer;
         private Vector2 _lastHeroMov;
         private Vector3 _currentHeroMove;
@@ -42,6 +43,7 @@ namespace SuperMageShield
 
         private void Awake()
         {
+            _animator = GetComponent<Animator>();
             _heroRenderer = GetComponent<SpriteRenderer>();
             GameStateManager.OnStateChanged += HandleState;
         }

@@ -18,6 +18,7 @@ namespace SuperMageShield
             _projectileObj = collision.gameObject;
             if (_projectileObj.CompareTag("Player"))
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/health bar");
                 HandleBuff();
             }
         }

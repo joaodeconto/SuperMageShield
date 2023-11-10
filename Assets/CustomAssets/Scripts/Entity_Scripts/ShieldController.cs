@@ -35,8 +35,9 @@ namespace SuperMageShield
         }
 
         public void OnRaiseShield()
-        {
+        {            
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/counter");
+
             if (!_isShieldRaised)
                 StartCoroutine(RaisingShield());
         }

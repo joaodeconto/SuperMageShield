@@ -49,6 +49,7 @@ namespace SuperMageShield
                 if (_projectileResistance <= 0)
                 {
                     this.gameObject.SetActive(false);
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/damage");
                     gameObject.transform.position = Vector3.zero;
                 }
                 else

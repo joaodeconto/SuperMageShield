@@ -19,13 +19,13 @@ public class EnemyController : EntityController
     }
     private void OnEnable()
     {
-
         StartCoroutine(WaitSpawn());
         HandleEnemyLevel();
     }
 
     private IEnumerator WaitSpawn()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/emerge");
         _animator.SetInteger("State", 0);
         yield return new WaitForSeconds(.1f);
         _animator.SetInteger("State", 1);
