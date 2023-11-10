@@ -25,6 +25,7 @@ namespace SuperMageShield
             _hitShield = false;
             _spriteRenderer.color = _projectileData.entityColor;
             transform.localScale = Vector3.one;
+            _rigidbody.velocity = Vector3.zero;
             StartCoroutine(AwaitToHit());
         }
         private IEnumerator AwaitToHit()

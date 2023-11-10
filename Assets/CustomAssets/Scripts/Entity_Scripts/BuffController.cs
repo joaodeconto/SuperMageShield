@@ -6,8 +6,9 @@ namespace SuperMageShield
     {
         private BuffSO _buffData;
         private Rigidbody2D _rb;
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _buffData = _entityData as BuffSO;
             _rb = GetComponent<Rigidbody2D>();
             _rb.velocity = (_buffData.buffFallSpeed * -1 * Vector2.up);

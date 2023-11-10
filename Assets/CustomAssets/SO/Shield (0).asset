@@ -22,3 +22,4 @@ MonoBehaviour:
   shieldRaiseSpeed: 12
   shieldDuration: 0.3
   shieldSize: 2
+  shieldDeflectionMultiplier: 1.3
